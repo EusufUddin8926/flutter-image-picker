@@ -58,9 +58,10 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         children: [
           Container(
+            margin: EdgeInsets.all(30),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.cyan),
             width: double.infinity,
             height: 500,
-            color: Colors. cyan,
             child: _imagefile == null
                 ? Center(
                   child: const Text(
