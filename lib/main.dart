@@ -59,18 +59,33 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           Container(
             margin: EdgeInsets.all(30),
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.cyan),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20), color: Colors.cyan),
             width: double.infinity,
             height: 500,
             child: _imagefile == null
-                ? Center(
-                  child: const Text(
+                ? const Center(
+                    child: Text(
                       "No Image Selected",
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white),
                     ),
-                )
-                : Image.file(_imagefile!),
+                  )
+                : Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 200,
+                        height: 200,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.pink,
+                          image: DecorationImage(fit: BoxFit.fill,
+                              image: Image.file(_imagefile!).image),
+                        ),
+                      )
+                    ],
+                  ),
           ),
           Divider(),
           Row(
